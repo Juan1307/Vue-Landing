@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="autor" content="Antik">
+	<meta name="description" content="Antik Landing page, web developer, Webapps y aplicaciones hibridas">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index,follow">
+	<title>Antik</title>
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+	<div id="v-render">
+		<!-- HEADER -->
+		<header class="header" :class="currentNavbarScroll" id="navbar">
+			<nav class="header__nav flex--sys">
+				<a href="" class="nav__logo">AT</a>
+				<ul class="nav__list flex--sys" :class="{'show__nav':onBurguer}"> <!-- show__nav -->
+					<li class="nav__list--item" 
+						:class="{'item__active' : objTabs.home}" 
+						@click="setLink('home')">
+						<a>Inicio</a>
+					</li>
+					<li class="nav__list--item" 
+						:class="{'item__active' : objTabs.blogs}"
+						@click="setLink('blogs')"><a>Blogs</a>
+					</li>
+					<li class="nav__list--item"><a>Recursos</a>
+						<ul class="nav__list--menu">
+							<li class="nav__list--subitem"><a href="www.google.com" target="_blank">Componentes</a>
+							<li class="nav__list--subitem"><a href="www.google.com" target="_blank">Repositorios</a>
+						</ul>
+					</li>
+					<li class="nav__list--item" 
+						:class="{'item__active' : objTabs.portfolio}"
+						@click="setLink('portfolio')"><a>Portafolio</a></li>
+					<li class="nav__list--item"
+						:class="{'item__active' : objTabs.contact}"
+						@click="setLink('contact')"><a>Contacto</a></li>
+					<li class="changue__theme flex--sys">
+						<div class="switch__theme flex--sys">
+							<div class="dark__theme" @click=setTheme(true)>
+								<i class='bx bx-moon bx-sm'></i>
+							</div>
+							<div class="light__theme" @click=setTheme(false)>
+								<i class='bx bx-sun bx-sm'></i>
+							</div>
+							<div class="switch__square" :class="{'changue' : !pageTheme}"></div><!-- CHANGUE -->
+						</div>
+					</li>
+				</ul>
+				<div class="nav__burguer" 
+					:class="{'toggle':onBurguer}" 
+					@click="onBurguer = (onBurguer) ? false : true"><!-- toggle -->
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+			</nav>
+		</header>
+		<!-- HEADER -->
+
+		<!-- DINAMYC COMPONENT -->
+		<div class="module--page">
+			<transition name="fadeIn" mode="out-in" appear>
+				<component :is="currentTabComponent"></component>
+			</transition>
+		</div>
+
+		<!-- DINAMYC COMPONENT -->
+
+		<!-- FOOTER -->
+		<section class="about__message container--normal grid--sys">
+			<i class='bx bxs-chevron-right message__a'></i>
+			<h1>Construyendo Apps con tecnologias modernas . . .</h1>
+			<i class='bx bxs-message-square-detail message__b' ></i>
+		</section>
+
+		<button class="btn__scroll__up btn btn--secondary" :class="currentBtnupScroll" @click="scrollRefs(0)">
+			<i class='bx bxs-chevron-up' ></i>	
+		</button>
+
+		<footer class="footer grid--sys">
+			<div class="footer__text">
+				<h3 class="mb--0">Antik</h3>
+				<p class="mb--0">El pseudonimo antik hace referencia al creador de la página, la cual en su appcore se basa en vanilla JS y librerias Open Source.</p>
+				<span><a class="link--ref" href="">Demos</a> / <a class="link--ref" href="">Repositorio</a></span>
+			</div>
+			<div class="footer__terms">
+				<h3 class="mb--0">Terminos y condiciones</h3>
+				<p class="mb--0">Los datos proveidos en la página son utilizados para un analisis continuo, no se recopilan datos ya que se basa en un marco estatico, mas info :</p>
+				<div class="footer__btn flex--sys">
+					<button class="btn" @click="openModal('Terminos')">Terminos</button>
+					<button class="btn" @click="openModal('Info')">Info</button>
+					<button class="btn" @click="openModal('Privacidad')">Privacidad</button>
+				</div>
+			</div>
+			<div class="footer__social">
+				<h3 class="mb--0">Redes y Contacto</h3>
+				<p class="mb--1">Mis redes donde subo contenido sobre programacion y rescursos abiertos :b</p>
+				<div class="footer__contact flex--sys">
+					<div>
+						<b>* 000 000 000</b><br>
+						<b>* 000 000 0</b>
+					</div>				
+					<div>
+						<a href="" class="btn btn--out--primary"><i class='bx bxl-codepen' ></i></a>&nbsp;
+						<a href="" class="btn btn--out--primary"><i class='bx bxl-github' ></i></a>&nbsp;
+						<a href="" class="btn btn--out--primary"><i class='bx bxl-linkedin' ></i></a>&nbsp;
+					</div>				
+				</div>
+			</div>
+		</footer>
+		<!-- FOOTER -->
+
+		<!-- MODAL -->
+		<div class="modal" :class="{'modal__active':onModal}">
+			<div class="modal__origin">
+				<div class="modal__header flex--sys ">
+					<h3 v-text="modalFlag"></h3>
+					<i class='bx bx-x bx-sm' @click="closeModal"></i>
+				</div>
+				<hr>
+				<div class="modal__content">
+					<div class="d--none" :class="{'d--block':modalFlag == 'Contacto'}">
+						<p class="mb--0">
+							<b><i class='bx bx-phone' ></i> Tel/Cel :</b> 000 000 000
+						</p>
+						<p class="mb--1">
+							<b><i class='bx bx-envelope' ></i> E - mail :</b> <a class="link--ref" href="">antoni_cabanillas_2000@hotmail.com</a>
+						</p>
+						<div class="modal__social text--center">
+							<a href="" class="btn btn--out--primary"><i class='bx bxl-codepen' ></i></a>&nbsp;
+							<a href="" class="btn btn--out--primary"><i class='bx bxl-github' ></i></a>&nbsp;
+							<a href="" class="btn btn--out--primary"><i class='bx bxl-linkedin' ></i></a>&nbsp;
+						</div>	
+					</div>
+					<div class="d--none" :class="{'d--block':modalFlag == 'Info'}">
+						<p>Agradecemos la visita a este espacio y si deseas contribuir con el contenido en base a la sección de blogs puedes contactarme a mis redes preveidas en esta página o la sección inicio.</p>
+					</div>
+					<div class="d--none" :class="{'d--block':modalFlag == 'Terminos'}">
+						<p>Antik y todá la provisión de librerias Open Source son de acceso público entorno al core de la página web, en base a módulos y funcionalidades, estas se encuentran en el repositorio de creador.</p>
+					</div>
+					<div class="d--none" :class="{'d--block':modalFlag == 'Privacidad'}">
+						<p>Esta página web progresiva prevee datos estáticos y funciones dinamicas en base a un marco en Javascript, no se recopilan datos con respecto al core de la página, dicho excluye que las APIs de terceros influyan en una recopilación de datos pero de la página y el flujo de la misma.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- MODAL -->
+
+	</div>
+	<!-- APP SCRIPTS -->
+	<script type="text/javascript" src="assets/js/axios.min.js"></script>
+	<script type="module" src="require/index.js"></script>
+</body>
+</html>
