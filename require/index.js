@@ -1,12 +1,10 @@
-// import * as Vue from './../assets/js/vue.esm-browser.js';
-import { createApp, defineAsyncComponent } from './../assets/js/vue.esm-browser.js';
+import { createApp, defineAsyncComponent } from './../assets/js/vue.esm-browser.prod.js';
 import { scrollRefs } from './helpers.js';
 import HomeComponent from './module/v-home.js';
 
 'use sctrict';
 
 ((d, w) => {
-	const PortfolioComponent = { template : `<h1 class="main__title">Desde portfolio APi</h1>`};
 
 	const routes = {
 		'/': HomeComponent,
@@ -19,7 +17,6 @@ import HomeComponent from './module/v-home.js';
     	data() {
 	    	return {
 	    		currentRoute: w.location.pathname,
-	    		currentsubRoute:'/',//out in production
 	      		objTabs: {home: true, blogs: false, portfolio: false, contact: false},
 	      		pageTheme: false,
 	      		scrollY: 0,
@@ -39,18 +36,14 @@ import HomeComponent from './module/v-home.js';
 	  				'header--show': this.scrollY >= 550
 	  			}
 	  		},
-	  		// http://localhost/A-FRONT/pure_page/lan2/
 	    	currentTabComponent() {
 	      		// return routes[this.currentRoute]'v-' + this.currentTab.toLowerCase();
-	      		return routes[this.currentsubRoute] || this.notFound();
+	      		return routes[this.currentRoute] || this.notFound();
 	    	}
-		}/*,
-		components: {
-			'v-home': HomeComponent
-		}*/,
+		},
 		methods:{
 			setRoute(hash){
-				this.currentsubRoute =  `/${hash}`;//out in production
+				this.currentRoute =  `/${hash}`;//out in production
 				history.pushState({ref: hash}, hash, this.currentRoute + hash);
 			},
 			setLink(val){

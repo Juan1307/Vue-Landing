@@ -12,9 +12,9 @@ export default {
 					<p>y multiplataforma</p>
 				</article>
 				<div class="main__button">
-					<a class="icon__main" href=""><i class='bx bxl-codepen bx-sm '></i></a>
-					<a class="icon__main" href=""><i class='bx bxl-github bx-sm '></i></a>
-					<a class="icon__main" href=""><i class='bx bxl-linkedin bx-sm '></i></a>
+					<a href="https://codepen.io/antik133up" target="__blank" class="icon__main"><i class='bx bxl-codepen bx-sm '></i></a>
+					<a href="https://github.com/Juan1307" target="__blank" class="icon__main"><i class='bx bxl-github bx-sm '></i></a>
+					<a href="https://www.linkedin.com/in/juan-antoni-cabanillas-chuquiruna-20a449174/" target="__blank" class="icon__main"><i class='bx bxl-linkedin bx-sm '></i></a>
 				</div>
 			</div>
 			<figure class="main__autor">
@@ -23,7 +23,8 @@ export default {
 				  	<p>Single Page App (SPA).</p>
 				  	<p>Multiplatform Apps (Native).</p>
 				  	<p>Progresive Web Aplications (PWA).</p>
-			  		<button class="btn btn--primary">Descargar CV</button>
+
+			  		<button class="btn btn--primary" @click="downloadCV">Descargar CV</button>
 			  	</figcaption>
 			</figure>
 			<div class="btn__down text--center">
@@ -50,7 +51,7 @@ export default {
 					</div>
 				</figure>
 				<article class="about__description text--center">
-					<p>Soy desarrollador, enfocado a tecnologias modernas y metodologias de desarrollo solidas y expansibles, mi objetivo es desempeñarme eficasmente en esta industria a traves de la colaboracion y metas propuestas en este campo.</p>
+					<p>Soy desarrollador, enfocado a tecnologias modernas y metodologias de desarrollo solidas y expansibles, mi objetivo es desempeñarme eficasmente en esta industria a traves de la colaboraciòn con metas propuestas en este campo.</p>
 					<div class="about__qualifications grid--sys">
 						<div class="about__qualifications--pro ">
 							<p>+ 4</p>
@@ -95,9 +96,9 @@ export default {
 				<div class="skill__square square--left flex--sys skill__one">
 					<div class="skill__content">
 						<h3 class="mb--0">Front Stack</h3>
-						<p>Conformado por marcos de desarrollo y tecnologias populares de como HTML - CSS - JS donde los marcos desempeñan un desarrollo enfocado a la reactividad.</p>
+						<p>Conformado por marcos de desarrollo y tecnologias populares como HTML - CSS - JS donde los marcos desempeñan un desarrollo enfocado a la reactividad.</p>
 						<ul class="skill__list">
-							<li><i class='bx bxl-react bx-sm' ></i> React js</li>
+							<li><i class='bx bxl-bootstrap bx-sm'></i> Bootstrap</li>
 							<li><i class='bx bxl-vuejs bx-sm'></i> Vue js</li>
 							<li><i class='bx bxl-javascript bx-sm' ></i> Vanilla JS</li>
 						</ul>
@@ -125,11 +126,11 @@ export default {
 				<div class="skill__square square--right skill__four">
 					<div class="skill__content text--end">
 						<h3 class="mb--0">Back Stack</h3>
-						<p>Lenguajes y marcos del lado del servidor para procesos complejos, enfocados a la gestion de datos relacionales o no relacionales con datos destructurados.</p>
+						<p>Lenguajes y marcos del lado del servidor para procesos complejos, enfocados a la gestiòn de datos relacionales o no relacionales con datos destructurados.</p>
 						<ul class="skill__list">
-							<li> PHP <i class='bx bxl-nodejs bx-sm' ></i></li>
-							<li> Node JS <i class='bx bxl-nodejs bx-sm' ></i></li>
-							<li> Golang <i class='bx bxl-c-plus-plus bx-sm' ></i></li>
+							<li> PHP <i class='bx bx-minus-back bx-sm'></i></li>
+							<li> Node JS <i class='bx bxl-nodejs bx-sm'></i></li>
+							<li> Mysql <i class='bx bx-data bx-sm' ></i></li>
 						</ul>
 					</div>
 				</div>
@@ -143,6 +144,9 @@ export default {
 		}
 	},
 	methods:{
+		downloadCV(){
+			window.open('CV.pdf', '_blank');
+		},
 		scrollOffs,
 		scrollRefs
 	},

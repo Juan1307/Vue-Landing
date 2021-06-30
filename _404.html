@@ -2,15 +2,58 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>404</title>
+	<title>404 - No encontrado</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index,follow">
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	<link rel='shortcut icon' type='image/x-icon' href='assets/imgs/logo.ico' />
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+		html{
+			box-sizing: border-box;
+		}
+
+		*,*::before,*::after{
+			box-sizing: inherit;
+			padding: 0;
+			margin: 0;
+		}
+		
+		body{
+			font-family: 'Ubuntu', sans-serif;
+			background-image: url('assets/imgs/404.jpg');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.not__found{
+			color: #ffff;
+			padding: 2rem;
+			text-align: center;
+		}
+
+		.not__found > h1{ font-size: 5rem; }
+		.not__found > h3{ font-size: 2rem; }
+		.not__found > hr{ margin: 1rem 0; }
+		.not__found > p{ font-size: 1rem; }
+		.not__found > p > a{ font-size: 1rem; color: lightblue; }
+	</style>
 </head>
 <body>
-	<h1>404</h1>
-	<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
+	<div class="not__found">
+		<h1>404</h1>
+		<h3><i class='bx bx-confused'></i> Pagina no encontrada <i class='bx bx-confused'></i></h3>
+		<hr>
+		<p>La direccion ingresada no corresponde a la página principal </p>
+		<p>Revisa previamente e ingresa la direccion correcta o ve a la pagina principal </p>
+		<p><a href="/"><b><i class='bx bx-log-out' ></i></b> Ir a Inicio</a></p>
+	</div>
 </body>
 </html>

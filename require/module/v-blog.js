@@ -55,7 +55,7 @@ export default {
 	    </div>	    
     	<section class="blog container--module grid--sys">
 	    	<article class="blog__content flex--sys">
-		    	<div class="text--center blog__loader">
+		    	<div class="text--center blog__loader flex--sys">
 		    		<i :class="{'d--none':!postLoad}" class='bx bx-loader-alt bx-spin bx-md m--auto'></i>
 		    	</div>
 		    	<div :class="{'d--none':postLoad}">
@@ -147,25 +147,24 @@ export default {
 				this.objPost = { title, published, updated, content, url };
 				// get comments
 				this.getBlogComment(url);
+
 			} catch(e) {
 				console.log(e);
 			} finally {
 				this.postLoad = false;
 			}
 		},
-		getBlogComment(url, d = document){
+		getBlogComment(url_d, d = document){
 			let frag = d.createRange().createContextualFragment(this.objPost.content);
             let fUrl = frag.querySelector('#video-post');
-            
             this.videoPost = fUrl == null ? fUrl : fUrl.href; 
-            
-           	DISQUS.reset({
-                reload: true,
-                config: function () {
-                    this.page.url = 'https://tiknetbat.blogspot.com/';
-                    this.page.identifier = url.slice(30);
-                }
-            });
+
+        	DISQUS.reset({ reload: true,
+				config: function () {
+					this.page.url = url_d;
+				    // this.page.identifier = url_d.slice(30);
+				}
+			});
 		},
 		scrollRefs
 	},
@@ -181,7 +180,7 @@ export default {
 
 		    dqz.addEventListener('load',() => resolve(), false);
 		    dqz.addEventListener('error',() => reject('No loaded error'), false);
-		    (d.head || d.body).appendChild(dqz);			
+		    (d.head || d.body).appendChild(dqz);
 		});
 		disqus.then((res) => this.callSyncBlogs()) 
 			  .catch((err) => console.error(err.status));

@@ -547,18 +547,10 @@ body.dark--theme{
 	font-style: italic;
 	list-style: square inside;
 }
+
+/* hide ads disqus */
 iframe[src*="ads-iframe"] { display: none; }
-
-
-
-
-
-
-
-
-
-
-
+iframe[sandbox]{ display: none;  }
 
 .blog{
 	grid-template-columns: 1fr 45%;
@@ -653,8 +645,7 @@ iframe[src*="ads-iframe"] { display: none; }
 .blog__loader{
 	position: absolute;
 	width: 100%;
-	height: 100%;
-	display: flex;
+	height: 30vh;
 }
 
 .blog__header--info{
@@ -700,6 +691,56 @@ iframe[src*="ads-iframe"] { display: none; }
 	max-height: 180vh;
 	overflow-y: auto;
 }
+
+.modal__image{
+	z-index: var(--z-20);
+	background-color: var(--rgba-secondary);
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: opacity .4s ease-in;
+}
+
+.modal__image.open{
+	opacity: 1;
+    pointer-events: all;
+}
+
+.image__modal{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    border-radius: var(--normal-b);
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: transform .4s ease-in-out;
+}
+
+.image__modal.open{
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.image__text{
+	background-color: var(--primary);
+    padding: .8rem;
+    border-radius: var(--normal-b);
+    font-size: 1.7rem;
+    color: var(--white);
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+}
+
+
+
+
+
+
 
 
 
@@ -762,53 +803,6 @@ iframe[src*="ads-iframe"] { display: none; }
 	right: -1rem;
 	bottom: -1.8rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .main__intro{
 	position: relative;
