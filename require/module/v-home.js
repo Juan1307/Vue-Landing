@@ -7,9 +7,9 @@ export default {
 			<div class="main__intro flex--sys">
 				<h1 class="main__title">Antik</h1>
 				<article class="main__description">
-					<p>Soy <b>Juan Cabanillas</b> y desarrollador de</p>
+					<p>Soy <b>Juan Cabanillas</b>, desarrollador de</p>
 					<p>aplicaciones enfocado al entorno web</p>
-					<p>y multiplataforma</p>
+					<p>y multiplataforma.</p>
 				</article>
 				<div class="main__button">
 					<a href="https://codepen.io/antik133up" target="__blank" class="icon__main"><i class='bx bxl-codepen bx-sm '></i></a>
@@ -22,7 +22,7 @@ export default {
 			  	<figcaption class="main__autor--ref">
 				  	<p>Single Page App (SPA).</p>
 				  	<p>Multiplatform Apps (Native).</p>
-				  	<p>Progresive Web Aplications (PWA).</p>
+				  	<p>Progresive Web Applications (PWA).</p>
 
 			  		<button class="btn btn--primary" @click="downloadCV">Descargar CV</button>
 			  	</figcaption>
@@ -51,7 +51,7 @@ export default {
 					</div>
 				</figure>
 				<article class="about__description text--center">
-					<p>Soy desarrollador, enfocado a tecnologias modernas y metodologias de desarrollo solidas y expansibles, mi objetivo es desempeñarme eficasmente en esta industria a traves de la colaboraciòn con metas propuestas en este campo.</p>
+					<p>Soy desarrollador, enfocado a tecnologias modernas y metodologias de desarrollo solidas y expansibles, mi objetivo es desempeñarme eficasmente en esta industria a traves de la colaboración con metas propuestas en este campo.</p>
 					<div class="about__qualifications grid--sys">
 						<div class="about__qualifications--pro ">
 							<p>+ 4</p>

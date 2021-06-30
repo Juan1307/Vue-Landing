@@ -21,10 +21,10 @@ export default {
 	            		<div class="card__text">
 	            			<p class="mb--0">Conformado en:</p>
 	            			<ul class="card__list">
-	            				<li>Frameworks</li>
-	            				<li>Js esencial</li>
-	            				<li>Estructura UX</li>
-	            				<li>Progresive Web Applications</li>
+	            				<li>Frameworks.</li>
+	            				<li>Js esencial.</li>
+	            				<li>Estructura UX.</li>
+	            				<li>Progresive Web Applications.</li>
 	            			</ul>
 	            		</div>
 	            	</div>
