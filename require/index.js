@@ -1,22 +1,25 @@
-import { createApp, defineAsyncComponent } from './../assets/js/vue.esm-browser.prod.js';
 import { scrollRefs } from './helpers.js';
 import HomeComponent from './module/v-home.js';
+import NotFound from './notfound.js';
 
 'use sctrict';
 
-((d, w) => {
+((d, w, { createApp }, { createRouter, createWebHashHistory }) => {
 
-	const routes = {
-		'/': HomeComponent,
-		'/home': HomeComponent,
-		'/blogs': defineAsyncComponent( () => import('./module/v-blog.js')),
-		'/portfolio': defineAsyncComponent( () => import('./module/v-portfolio.js'))
-	};
+	const Router = createRouter({
+		history: createWebHashHistory(),
+  		routes: [
+			{ path:'/',component: HomeComponent },
+			{ path:'/home', component: HomeComponent },
+			{ path:'/blogs', component: () => import('./module/v-blog.js') },
+			{ path:'/portfolio', component: () => import('./module/v-portfolio.js')},
+			{ path:'/:pathMatch(.*)*', component: NotFound }
+		],
+	});
 
     const render = createApp({
     	data() {
 	    	return {
-	    		currentRoute: w.location.pathname,
 	      		objTabs: {home: true, blogs: false, portfolio: false, contact: false},
 	      		pageTheme: false,
 	      		scrollY: 0,
@@ -24,7 +27,7 @@ import HomeComponent from './module/v-home.js';
 	      		onModal: false,
 	      		modalFlag: 'contact',
 	      		link: null
-		    }
+		    };
 		},
 	  	computed: {
 	  		currentBtnupScroll(){
@@ -34,24 +37,15 @@ import HomeComponent from './module/v-home.js';
 	  			return {
 	  				'header--hide': this.scrollY >= 100 && this.scrollY < 550,
 	  				'header--show': this.scrollY >= 550
-	  			}
-	  		},
-	    	currentTabComponent() {
-	      		// return routes[this.currentRoute]'v-' + this.currentTab.toLowerCase();
-	      		return routes[this.currentRoute] || this.notFound();
-	    	}
+	  			};
+	  		}
 		},
 		methods:{
-			setRoute(hash){
-				this.currentRoute =  `/${hash}`;//out in production
-				history.pushState({ref: hash}, hash, this.currentRoute + hash);
-			},
 			setLink(val){
 				for (const key in this.objTabs) {
 					this.objTabs[key] = (key == val) ? true : false;
 				}
 				if (val == 'contact') return this.openModal();
-				this.setRoute(val);
 			},
 			openModal(opt = 'Contacto'){
 				this.onModal = true;
@@ -81,6 +75,7 @@ import HomeComponent from './module/v-home.js';
 			else this.setTheme(true);
 		}
     });
+    render.use(Router);
     render.mount('#v-render');
 
-})(document, window);
+})(document, window, Vue , VueRouter);

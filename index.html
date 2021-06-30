@@ -9,9 +9,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="index,follow">
 	
-	<link rel='shortcut icon' type='image/x-icon' href='assets/imgs/logo.ico'>
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel='shortcut icon' type='image/x-icon' href='assets/imgs/logo.ico'>
+
 </head>
 <body>
 	<div id="v-render">
@@ -20,24 +21,25 @@
 			<nav class="header__nav flex--sys">
 				<a href="" class="nav__logo">AT</a>
 				<ul class="nav__list flex--sys" :class="{'show__nav':onBurguer}"> <!-- show__nav -->
-					<li class="nav__list--item" 
-						:class="{'item__active' : objTabs.home}" 
+
+					<li class="nav__list--item" :class="{'item__active' : objTabs.home}"
 						@click="setLink('home')">
-						<a>Inicio</a>
+					 	<router-link to="/">Inicio</router-link>
 					</li>
-					<li class="nav__list--item" 
-						:class="{'item__active' : objTabs.blogs}"
-						@click="setLink('blogs')"><a>Blogs</a>
+					<li class="nav__list--item" :class="{'item__active' : objTabs.blogs}"
+						@click="setLink('blogs')">
+					 	<router-link to="/blogs">Blogs</router-link>
 					</li>
 					<li class="nav__list--item"><a>Recursos</a>
 						<ul class="nav__list--menu">
-							<li class="nav__list--subitem"><a href="www.google.com" target="_blank">Componentes</a>
-							<li class="nav__list--subitem"><a href="www.google.com" target="_blank">Repositorios</a>
+							<li class="nav__list--subitem"><a href="https://codepen.io/antik133up/pens/" target="_blank">Componentes</a>
+							<li class="nav__list--subitem"><a href="https://github.com/Juan1307?tab=repositories" target="_blank">Repositorios</a>
 						</ul>
 					</li>
-					<li class="nav__list--item" 
-						:class="{'item__active' : objTabs.portfolio}"
-						@click="setLink('portfolio')"><a>Portafolio</a></li>
+					<li class="nav__list--item" :class="{'item__active' : objTabs.portfolio}" 
+						@click="setLink('portfolio')">
+					 	<router-link to="/portfolio">Portafolio</router-link>
+					</li>
 					<li class="nav__list--item"
 						:class="{'item__active' : objTabs.contact}"
 						@click="setLink('contact')"><a>Contacto</a></li>
@@ -67,7 +69,7 @@
 		<!-- DINAMYC COMPONENT -->
 		<div class="module--page">
 			<transition name="fadeIn" mode="out-in" appear>
-				<component :is="currentTabComponent"></component>
+				<router-view></router-view>
 			</transition>
 		</div>
 
@@ -88,7 +90,9 @@
 			<div class="footer__text">
 				<h3 class="mb--0">Antik</h3>
 				<p class="mb--0">El pseudonimo antik hace referencia al creador de la página, la cual en su appcore se basa en vanilla JS y librerias Open Source.</p>
-				<span><a class="link--ref" href="">Demos</a> / <a class="link--ref" href="">Repositorio</a></span>
+				<span>
+					<a class="link--ref" href="" target="__blank">Demos</a> / 
+					<a class="link--ref" href="" target="__blank">Repositorio</a></span>
 			</div>
 			<div class="footer__terms">
 				<h3 class="mb--0">Terminos y condiciones</h3>
@@ -157,6 +161,8 @@
 
 	</div>
 	<!-- APP SCRIPTS -->
+	<script type="text/javascript" src="assets/js/vue.global.js"></script>
+	<script type="text/javascript" src="assets/js/vue-router.global.js"></script>
 	<script type="text/javascript" src="assets/js/axios.min.js"></script>
 	<script type="module" src="require/index.js"></script>
 </body>

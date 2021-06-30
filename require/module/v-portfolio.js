@@ -21,7 +21,7 @@ export default {
 	            		<div class="card__text">
 	            			<p class="mb--0">Plaformas de:</p>
 	            			<ul class="card__list">
-	            				<li>Gestion de proyectos.</li>
+	            				<li>Gestión de proyectos.</li>
 	            				<li>Flujo de versiones.</li>
 	            				<li>Demos y Componentes</li>
 	            			</ul>
@@ -72,16 +72,16 @@ export default {
 			currentImage: {img:'', title:''},
 			portfolioArr:[
 				{ 	flag:'proyect', img:'assets/imgs/recibe.png',
-					title:'Sys Rec', description:'Sistema de gestion de recibos.',
+					title:'Sys Rec', description:'Sistema de gestión para recibos.',
 					link:'' },
 				{ 	flag:'proyect', img:'assets/imgs/archive.jpg',
-					title:'Sys Res', description:'Sistema de administracion de resoluciones.',
+					title:'Sys Res', description:'Sistema de administración de resoluciones.',
 					link:'' },
 				{ 	flag:'proyect', img:'assets/imgs/audioapp.jpg',
-					title:'Audio App', description:'Aplicacion de musica con espectro',
+					title:'Audio App', description:'Aplicación de música con espectro',
 					link:'' },
 				{ 	flag:'proyect', img:'assets/imgs/blogs.jpg',
-					title:'Blog App', description:'App con blogger para blogs',
+					title:'Blog App', description:'App con blogger API para blogs',
 					link:'' },
 				{ 	flag:'proyect', img:'assets/imgs/landing.jpg',
 					title:'Landing Page', description:'Plantilla reutilizable para landings.',
@@ -96,10 +96,10 @@ export default {
 					title:'Star Uml', description:'Diseño estructura de Apps en lenguaje UML.',
 					link:'' },
 				{ 	flag:'platform', img:'assets/imgs/balsamiq.jpg',
-					title:'Balsamiq', description:'Diseño de prototipado de Aplicaciones.',
+					title:'Balsamiq', description:'Diseño de prototipado para Aplicaciones.',
 					link:'' },
 				{ 	flag:'demo', img:'assets/imgs/comments.jpg',
-					title:'Sys Comentarios', description:'Sistema de comentarios con fecth',
+					title:'Sys Comentarios', description:'Sistema de comentarios con API fecth',
 					link:'' },
 				{ 	flag:'demo', img:'assets/imgs/transforms.jpg',
 					title:'Animations', description:'Animaciones a elementos con css puro.',
@@ -108,7 +108,7 @@ export default {
 					title:'Web Natural', description:'Landing page natural.',
 					link:'' },
 				{ 	flag:'demo', img:'assets/imgs/galery.jpg',
-					title:'Galeria', description:'Galeria de imagenes con APi fecth',
+					title:'Galeria', description:'Galeria de imagenes con API fecth',
 					link:'' },
 				{ 	flag:'demo', img:'assets/imgs/timer.jpg',
 					title:'Reloj', description:'Reloj con captura de tiempo.',
