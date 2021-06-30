@@ -71,7 +71,7 @@ export default {
 					  {tab:'Demos',key:'demo'} ],
 			currentImage: {img:'', title:''},
 			portfolioArr:[
-				{ 	flag:'proyect', img:'assets/imgs/recibe.png',
+				{ 	flag:'proyect', img:'assets/imgs/recibe.jpg',
 					title:'Sys Rec', description:'Sistema de gestión para recibos.',
 					link:'' },
 				{ 	flag:'proyect', img:'assets/imgs/archive.jpg',
